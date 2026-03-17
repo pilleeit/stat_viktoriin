@@ -4,13 +4,11 @@ const Quiz = ({ questions }) => {
 	return (
 		<>
 			<h2>Küsimused</h2>
-			<ul>
-				{questions.map((q) => (
-					<li key={q.id}>
-						<Link to={q.id}>{q.text}</Link>
-					</li>
-				))}
-			</ul>
+			<p>tähtis jutt viktoriini kohta</p>
+			<Link to={`/quiz/${questions[0].id}`}>
+				<button>Alusta vastamist</button>
+			</Link>
+
 			<Outlet />
 		</>
 	);

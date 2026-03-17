@@ -22,11 +22,12 @@ const Layout = () => {
 				<NavLink to='/' style={linkStyle}>
 					Kodu
 				</NavLink>
-				<NavLink to='/about' style={linkStyle}>
-					Meist
-				</NavLink>
+
 				<NavLink to='/quiz' style={linkStyle}>
 					Viktoriin
+				</NavLink>
+				<NavLink to='/results' style={linkStyle}>
+					tulemused
 				</NavLink>
 			</nav>
 
