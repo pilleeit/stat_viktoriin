@@ -1,4 +1,6 @@
-const Results = ({ questions, answers }) => {
+import { useQuiz } from "../contexts/QuizContexts";
+
+const Results = () => {
 	let score = 0;
 
 	return (

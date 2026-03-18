@@ -1,17 +1,21 @@
-import { Link, Outlet } from "react-router";
+import { useNavigate } from "react-router";
+import { useQuiz } from "../contexts/QuizContexts";
 
-const Quiz = ({ questions }) => {
+const Quiz = () => {
+	const { questions, showButton, setShowButton } = useQuiz();
+	const navigate = useNavigate();
+
+	const handleClick = () => {
+		setShowButton(false);
+		navigate(`/quiz/${questions[0].id}`);
+	};
+
 	return (
 		<>
 			<h2>Küsimused</h2>
-			<p>tähtis jutt viktoriini kohta</p>
-			<Link to={`/quiz/${questions[0].id}`}>
-				<button>Alusta vastamist</button>
-			</Link>
 
-			<Outlet />
+			{showButton && <button onClick={handleClick}>Alusta vastamist</button>}
 		</>
 	);
 };
-
 export default Quiz;
