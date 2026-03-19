@@ -3,6 +3,8 @@ import { useQuiz } from "../contexts/QuizContexts";
 const Results = () => {
 	let score = 0;
 
+	const { questions, answers } = useQuiz();
+
 	return (
 		<>
 			<h2>Tulemused</h2>
@@ -29,7 +31,7 @@ const Results = () => {
 								<td>{q.text}</td>
 								<td>{q.options[userAnswer]}</td>
 								<td>{q.options[q.correct]}</td>
-								<td>{isCorrect ? "✅" : "❌"}</td>
+								<td>{isCorrect ? "Õige" : "Vale"}</td>
 							</tr>
 						);
 					})}

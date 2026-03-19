@@ -10,6 +10,7 @@ const Question = () => {
 
 	const currentIndex = questions.findIndex((q) => q.id === questionId);
 	const question = questions[currentIndex];
+	if (!question) return <p>Küsimust ei leitud</p>;
 
 	const [showAnswer, setShowAnswer] = useState(false);
 
@@ -65,18 +66,18 @@ const Question = () => {
 			{showAnswer && answers[questionId] && (
 				<div>
 					{answers[questionId] === question.correct ? (
-						<p style={{ color: "green" }}>✅ Õige!</p>
+						<p style={{ color: "green" }}> Õige!</p>
 					) : (
-						<p style={{ color: "red" }}>❌ Vale! Õige vastus: {question.options[question.correct]}</p>
+						<p style={{ color: "red" }}> Vale. Õige vastus: {question.options[question.correct]}</p>
 					)}
 				</div>
 			)}
 
+			<button onClick={handleCancel}>Katkesta</button>
+
 			<button onClick={handleNext} disabled={!answers[questionId]}>
 				{showAnswer ? "Edasi" : "Kontrolli"}
 			</button>
-
-			<button onClick={handleCancel}>Katkesta</button>
 		</>
 	);
 };

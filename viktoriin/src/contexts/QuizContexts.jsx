@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router";
 
 const QuizContext = createContext();
 
@@ -27,6 +28,16 @@ export const QuizProvider = ({ children }) => {
 	const [answers, setAnswers] = useState({});
 	const [showButton, setShowButton] = useState(true);
 
+	const navigate = useNavigate();
+	const handleStartClick = () => {
+		setShowButton(false);
+		navigate(`/quiz/${questions[0].id}`);
+	};
+
+	const getScore = () => {
+		return questions.filter((q) => answers[q.id] === q.correct).length;
+	};
+
 	return (
 		<QuizContext.Provider
 			value={{
@@ -35,6 +46,8 @@ export const QuizProvider = ({ children }) => {
 				setAnswers,
 				showButton,
 				setShowButton,
+				handleStartClick,
+				getScore,
 			}}
 		>
 			{children}

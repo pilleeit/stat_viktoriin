@@ -1,20 +1,17 @@
-import { useNavigate } from "react-router";
+import { Outlet } from "react-router";
 import { useQuiz } from "../contexts/QuizContexts";
 
 const Quiz = () => {
-	const { questions, showButton, setShowButton } = useQuiz();
-	const navigate = useNavigate();
-
-	const handleClick = () => {
-		setShowButton(false);
-		navigate(`/quiz/${questions[0].id}`);
-	};
+	const { showButton, handleStartClick } = useQuiz();
 
 	return (
 		<>
 			<h2>Küsimused</h2>
+			<p>kirjeldav jutt küsimustiku ohta</p>
 
-			{showButton && <button onClick={handleClick}>Alusta vastamist</button>}
+			{showButton && <button onClick={handleStartClick}>Alusta vastamist</button>}
+
+			<Outlet />
 		</>
 	);
 };
