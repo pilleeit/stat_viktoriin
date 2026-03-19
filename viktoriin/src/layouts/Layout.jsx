@@ -20,19 +20,16 @@ const Layout = () => {
 			>
 				{/* Indeksi marsruut on "/" */}
 				<NavLink to='/' style={linkStyle}>
-					Kodu
+					Avaleht
 				</NavLink>
 
 				<NavLink to='/quiz' style={linkStyle}>
 					Viktoriin
 				</NavLink>
-				<NavLink to='/results' style={linkStyle}>
-					tulemused
-				</NavLink>
 			</nav>
 
 			<main style={{ padding: "1rem 0" }}>
-				{/* Pesastatud marsruudid renderdatakse siin */}
+				{/* Pesastatud marsruudid */}
 				<Outlet />
 			</main>
 		</>

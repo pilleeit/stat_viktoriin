@@ -1,9 +1,7 @@
 import { useQuiz } from "../contexts/QuizContexts";
 
 const Results = () => {
-	let score = 0;
-
-	const { questions, answers } = useQuiz();
+	const { questions, answers, getScore, resetQuiz } = useQuiz();
 
 	return (
 		<>
@@ -24,8 +22,6 @@ const Results = () => {
 						const userAnswer = answers[q.id];
 						const isCorrect = userAnswer === q.correct;
 
-						if (isCorrect) score++;
-
 						return (
 							<tr key={q.id}>
 								<td>{q.text}</td>
@@ -39,8 +35,10 @@ const Results = () => {
 			</table>
 
 			<h3>
-				Skoor: {score} / {questions.length}
+				Skoor: {getScore()} / {questions.length}
 			</h3>
+
+			<button onClick={resetQuiz}>Tagasi algusesse</button>
 		</>
 	);
 };

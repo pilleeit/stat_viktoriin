@@ -38,6 +38,12 @@ export const QuizProvider = ({ children }) => {
 		return questions.filter((q) => answers[q.id] === q.correct).length;
 	};
 
+	const resetQuiz = () => {
+		setAnswers({});
+		setShowButton(true);
+		navigate("/quiz");
+	};
+
 	return (
 		<QuizContext.Provider
 			value={{
@@ -48,6 +54,7 @@ export const QuizProvider = ({ children }) => {
 				setShowButton,
 				handleStartClick,
 				getScore,
+				resetQuiz,
 			}}
 		>
 			{children}

@@ -6,7 +6,7 @@ const Question = () => {
 	const { questionId } = useParams();
 	const navigate = useNavigate();
 
-	const { questions, answers, setAnswers, setShowButton } = useQuiz();
+	const { questions, answers, setAnswers, resetQuiz } = useQuiz();
 
 	const currentIndex = questions.findIndex((q) => q.id === questionId);
 	const question = questions[currentIndex];
@@ -19,12 +19,6 @@ const Question = () => {
 			...answers,
 			[questionId]: key,
 		});
-	};
-
-	const handleCancel = () => {
-		setAnswers({});
-		setShowButton(true);
-		navigate("/quiz");
 	};
 
 	const handleNext = () => {
@@ -73,7 +67,7 @@ const Question = () => {
 				</div>
 			)}
 
-			<button onClick={handleCancel}>Katkesta</button>
+			<button onClick={resetQuiz}>Katkesta</button>
 
 			<button onClick={handleNext} disabled={!answers[questionId]}>
 				{showAnswer ? "Edasi" : "Kontrolli"}
