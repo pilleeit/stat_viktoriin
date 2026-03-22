@@ -7,8 +7,12 @@
 ```
 cd viktoriin
 ```
+2. installi sõltuvused terminalis
+```
+npm install
+```
 
-2. käivita terminalis projekt
+3. käivita terminalis projekt
 
 ```
 npm run dev
