@@ -1,6 +1,6 @@
 # stat_viktoriin
 
-alustamine
+## Alustamine
 
 1. navigeeri terminalis projekti kausta
 
@@ -16,5 +16,20 @@ npm run dev
 
 3. peale käivitamist näed terminalis linki - samal ajal vajutad ctrl ja klikid lingil ning projekt avaneb veebilehitsejas
 
-> [!NOTE]
-> hetkel pole pandud külge katkestamise loogikat lehelt lahkumise puhuks, sest kuna iga küsimus peab olema eraldi lehel siis võib juhtuda et katkestab keset viktoriini kuna arvab et 'path' muutus. Eraldi katkestamise nupp on lisatud.
+## Testimine
+
+1. testide käivitamiseks sisesta terminalis
+
+```
+ npx playwright test
+```
+
+2. testi tulemuse kuvamiseks brauseris sisesta terminalis
+
+```
+npx playwright show-report
+```
+
+## Lehe kuvamine brauseris
+
+https://stat-viktoriin.vercel.app/
