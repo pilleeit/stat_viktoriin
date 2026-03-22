@@ -39,11 +39,11 @@ const Question = () => {
 	return (
 		<>
 			<h3>Küsimus: {questionId}</h3>
-			<p>{question.text}</p>
+			<p className='question'>{question.text}</p>
 
 			{Object.entries(question.options).map(([key, value]) => (
 				<div key={key}>
-					<label>
+					<label className='option'>
 						<input
 							type='radio'
 							name='answer'
@@ -58,15 +58,22 @@ const Question = () => {
 			))}
 
 			{showAnswer && answers[questionId] && (
-				<div>
-					{answers[questionId] === question.correct ? (
-						<p style={{ color: "green" }}> Õige!</p>
-					) : (
-						<p style={{ color: "red" }}> Vale. Õige vastus: {question.options[question.correct]}</p>
-					)}
+				<div className={answers[questionId] === question.correct ? "alert alert-success" : "alert alert-error"}>
+					<div className='alert-content'>
+						{answers[questionId] === question.correct ? (
+							<>
+								<span>✔</span>
+								<span>Õige vastus!</span>
+							</>
+						) : (
+							<>
+								<span>✖</span>
+								<span>Vale. Õige vastus: {question.options[question.correct]}</span>
+							</>
+						)}
+					</div>
 				</div>
 			)}
-
 			<button onClick={resetQuiz}>Katkesta</button>
 
 			<button onClick={handleNext} disabled={!answers[questionId]}>

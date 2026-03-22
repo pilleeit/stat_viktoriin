@@ -6,12 +6,14 @@ const Quiz = () => {
 
 	return (
 		<>
-			<h2>Küsimused</h2>
-			<p>kirjeldav jutt küsimustiku ohta</p>
+			<div className='card'>
+				<h2>Küsimused</h2>
+				<p>kirjeldav jutt küsimustiku ohta</p>
 
-			{showButton && <button onClick={handleStartClick}>Alusta vastamist</button>}
+				{showButton && <button onClick={handleStartClick}>Alusta vastamist</button>}
 
-			<Outlet />
+				<Outlet />
+			</div>
 		</>
 	);
 };
